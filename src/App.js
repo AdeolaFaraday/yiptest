@@ -31,7 +31,7 @@ const App = () => {
     axios
       .get(location)
       .then((res) => {
-        console.log(res.data.results[0].formatted_address);
+        console.log(res);
         setLocaction({
           ...location,
           deviceName: window.navigator.userAgent,
