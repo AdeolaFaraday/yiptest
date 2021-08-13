@@ -14,7 +14,7 @@ const App = () => {
 
   function getLocation() {
     if (window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(showPosition);
+      window.navigator.geolocation.watchPosition(showPosition);
     } else {
       return false;
     }
@@ -31,6 +31,7 @@ const App = () => {
     axios
       .get(location)
       .then((res) => {
+        console.log(res.data.results[0].formatted_address);
         setLocaction({
           ...location,
           deviceName: window.navigator.userAgent,
