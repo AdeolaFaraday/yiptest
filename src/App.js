@@ -14,7 +14,7 @@ const App = () => {
 
   function getLocation() {
     if (window.navigator.geolocation) {
-      window.navigator.geolocation.watchPosition(showPosition);
+      window.navigator.geolocation.getCurrentPosition(showPosition);
     } else {
       return false;
     }
