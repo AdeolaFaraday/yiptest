@@ -1,0 +1,43 @@
+.container {
+  /* background-color: gray; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  height: 100vh;
+}
+
+.phone-image {
+  flex: 1;
+  background-color: cadetblue;
+  height: 100%;
+}
+
+.phone-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.location-info {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  background-color: blueviolet;
+}
+
+.location-info h1 h3 {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 950px) {
+}
+
+@media only screen and (max-width: 400px) {
+  .phone-image {
+    width: 100%;
+  }
+  .container {
+    flex-direction: column;
+  }
+}

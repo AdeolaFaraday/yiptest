@@ -1,0 +1,52 @@
+/* section {
+      padding: 4rem;
+    } */
+section {
+  height: 100vh;
+}
+.container {
+  /* background-color: gray; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 70%;
+  margin: auto;
+  height: 70vh;
+}
+
+.phone-image {
+  flex: 1;
+  background-color: cadetblue;
+  height: 100%;
+}
+
+.phone-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.location-info {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  background-color: blueviolet;
+}
+
+.location-info h1 h3 {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 950px) {
+}
+
+@media only screen and (max-width: 400px) {
+  .phone-image {
+    width: 100%;
+    height: 60%;
+  }
+  .container {
+    flex-direction: column;
+  }
+}

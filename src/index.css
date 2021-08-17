@@ -5,50 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e3f4e9;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-/* section {
-  padding: 4rem;
-} */
-
-.container {
-  background-color: gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  height: 100vh;
-}
-
-.phone-image {
-  flex: 1;
-  height: 100%;
-}
-
-.phone-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.location-info {
-  flex: 1;
-}
-
-.location-info h1 h3 {
-  font-size: 1rem;
-}
-
-@media only screen and (max-width: 950px) {
-}
-
-@media only screen and (max-width: 400px) {
-  .container {
-    flex-wrap: wrap;
-  }
 }
