@@ -8,6 +8,11 @@
   color: #52b788;
 }
 
+.user-info {
+  text-align: center;
+  color: #52b788;
+}
+
 .container {
   /* background-color: gray; */
   display: flex;

@@ -6,17 +6,13 @@ import { locationAction } from "../actions";
 import UserMapShow from "./userMapShow";
 
 const UserComponent = (props) => {
-  const [cordinate, setCordinate] = useState({
-    location: [],
-  });
+  const [cordinate, setCordinate] = useState('');
 
   useEffect(() => {
     if (window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition((pos) => {
         const latlon = pos.coords.latitude + "," + pos.coords.longitude;
-        setCordinate((prev) => {
-          return { ...prev, location: [latlon] };
-        });
+        setCordinate(latlon);
       });
     }
   }, []);
