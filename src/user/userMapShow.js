@@ -11,8 +11,12 @@ const UserMapShow = (props) => {
   });
   const map = useRef(null);
   useEffect(() => {
-    showPosition();
-  }, []);
+    if (props.lonlat) {
+      showPosition();
+    }
+  }, [props.lonlat]);
+
+  console.log(props);
 
   const showPosition = () => {
     console.log(lonlat, "dsjncdio");

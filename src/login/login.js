@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import "./login.css";
 import { connect } from "react-redux";
 import { locationAction } from "../actions";
 import { io } from "socket.io-client";
 import { bindActionCreators } from "redux";
 
-let socket = io("ws://localhost:8000/");
+// https://yiptestbackend.herokuapp.com/
+let socket = io("http://localhost:8000/");
 
 const Login = (props) => {
   const [name, setName] = useState("");
   const [cordinate, setCordinate] = useState("");
+  const [run, setRun] = useState(false);
 
   useEffect(() => {
     if (window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition((pos) => {
         const latlon = pos.coords.latitude + "," + pos.coords.longitude;
         props.locationAction([latlon]);
+        // console.log(pos);
         setCordinate(latlon);
       });
     }
@@ -26,16 +29,24 @@ const Login = (props) => {
     // };
   }, []);
 
+  useEffect(() => {
+    if (run) {
+      // console.log(cordinate);
+      socket.emit("addUser", { name, location: cordinate });
+      const route = name === "admin" ? "/admin" : "/staff";
+      props.history.push(route);
+    }
+  }, [run]);
+
   const handleChange = (e) => {
     setName(e.target.value);
   };
   const handleAdmin = () => {
     if (name !== "admin") {
-      window.alert("you are not authorized to login in as admin");
+      window.alert(`${name} is not authorized to login in as admin`);
       return;
     }
-    socket.emit("addUser", { name, location: cordinate });
-    props.history.push("/admin");
+    setRun(true);
   };
 
   // const getLocation = () => {
@@ -71,13 +82,11 @@ const Login = (props) => {
   // };
 
   const handleStaff = () => {
-    console.log(cordinate);
     if (!name) {
       window.alert("please enter a name");
       return;
     }
-    socket.emit("addUser", { name, location: cordinate });
-    props.history.push("/staff");
+    setRun(true);
   };
 
   return (
