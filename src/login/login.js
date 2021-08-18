@@ -7,7 +7,7 @@ import { io } from "socket.io-client";
 import { bindActionCreators } from "redux";
 
 // https://yiptestbackend.herokuapp.com/
-let socket = io("http://localhost:8000/");
+let socket = io("https://yiptestbackend.herokuapp.com/");
 
 const Login = (props) => {
   const [name, setName] = useState("");
@@ -30,7 +30,7 @@ const Login = (props) => {
   }, []);
 
   useEffect(() => {
-    if (run) {
+    if (cordinate) {
       // console.log(cordinate);
       socket.emit("addUser", { name, location: cordinate });
       const route = name === "admin" ? "/admin" : "/staff";
@@ -39,7 +39,7 @@ const Login = (props) => {
   }, [run]);
 
   const handleChange = (e) => {
-    setName(e.target.value);
+    setName(e.target.value.toLowerCase());
   };
   const handleAdmin = () => {
     if (name !== "admin") {
@@ -96,6 +96,7 @@ const Login = (props) => {
           <input
             type="text"
             onChange={handleChange}
+            value={name}
             className="form-input"
             placeholder="Your name"
           />

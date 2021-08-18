@@ -17,7 +17,7 @@ const MapShow = (props) => {
   const showPosition = () => {
     const cordinate = lonlat.location;
     console.log(cordinate, props);
-    const img_url = `https://maps.googleapis.com/maps/api/staticmap?center=${cordinate}&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&zoom=13&size=400x300&sensor=true&key=${config.API_KEY}`;
+    const img_url = `https://maps.googleapis.com/maps/api/staticmap?center=${cordinate}&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&zoom=16&size=400x300&sensor=true&key=${config.API_KEY}`;
     // const img_url =
     //   "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGhvbmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80";
     map.current.innerHTML = `<img class="map-image" src=${img_url}>`;
